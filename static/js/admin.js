@@ -4,15 +4,7 @@ import { getAuth, GoogleAuthProvider, } from "https://www.gstatic.com/firebasejs
 import { getFirestore, collection, addDoc, getDocs, updateDoc, doc  } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
 
 // Firebase configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyA1VmUhEysjaGIGKmBb2z7VvPEAG-n5rfU",
-    authDomain: "medical-ai-platform.firebaseapp.com",
-    projectId: "medical-ai-platform",
-    storageBucket: "medical-ai-platform.appspot.com",
-    messagingSenderId: "815477865105",
-    appId: "1:815477865105:web:12a974a71ad87618b39d30",
-    measurementId: "G-S4BJYBFT1Q"
-};
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
