@@ -1,0 +1,166 @@
+{% extends "index.html" %}
+
+
+{% block content %}
+<head>
+    <title>Medical Appointment Booking</title>
+</head>
+<body>
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="predict-container">
+            <div class="header">
+                <h2>Book a Medical Appointment</h2>
+                <p>Fill out the form below to schedule your appointment</p>
+            </div>
+
+            <form class="predict-form" id="appointmentForm">
+                <div class="section">
+                    <div class="section-title">Personal Information</div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="fullName">Full Name*</label>
+                                <input type="text" id="fullName" name="fullName" required>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="phone">Phone Number*</label>
+                                <input type="text" id="phone" name="phone" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="email">Email Address*</label>
+                                <input type="text" id="email" name="email" required>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="dob">Date of Birth*</label>
+                                <input type="date" id="dob" name="dob" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <textarea id="address" name="address"></textarea>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-title">Appointment Details</div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="department">Department*</label>
+                                <select id="department" name="department" required>
+                                    <option value="">Select Department</option>
+                                    <option value="cardiology">Cardiology</option>
+                                    <option value="neurology">Neurology</option>
+                                    <option value="orthopedics">Orthopedics</option>
+                                    <option value="pediatrics">Pediatrics</option>
+                                    <option value="dermatology">Dermatology</option>
+                                    <option value="general">General Medicine</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="doctor">Preferred Doctor</label>
+                                <select id="doctor" name="doctor">
+                                    <option value="">Any Available Doctor</option>
+                                    <option value="dr_smith">Dr. Smith (Cardiology)</option>
+                                    <option value="dr_johnson">Dr. Johnson (Neurology)</option>
+                                    <option value="dr_williams">Dr. Williams (Orthopedics)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="appointmentDate">Appointment Date*</label>
+                                <input type="date" id="appointmentDate" name="appointmentDate" required>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="appointmentTime">Preferred Time*</label>
+                                <select id="appointmentTime" name="appointmentTime" required>
+                                    <option value="">Select Time</option>
+                                    <option value="09:00">09:00 AM</option>
+                                    <option value="10:00">10:00 AM</option>
+                                    <option value="11:00">11:00 AM</option>
+                                    <option value="13:00">01:00 PM</option>
+                                    <option value="14:00">02:00 PM</option>
+                                    <option value="15:00">03:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="reason">Reason for Visit*</label>
+                        <textarea id="reason" name="reason" required></textarea>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-title">Insurance Information</div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="hasInsurance" name="hasInsurance">
+                            I have health insurance
+                        </label>
+                    </div>
+                    
+                    <div id="insuranceDetails" style="display: none;">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="insuranceProvider">Insurance Provider</label>
+                                    <input type="text" id="insuranceProvider" name="insuranceProvider">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="policyNumber">Policy Number</label>
+                                    <input type="text" id="policyNumber" name="policyNumber">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">Book Appointment</button>
+            </form>
+        </div>
+    </div>
+
+
+
+    <!-- <script>
+        // Show/hide insurance details based on checkbox
+        document.getElementById('hasInsurance').addEventListener('change', function() {
+            const insuranceDetails = document.getElementById('insuranceDetails');
+            insuranceDetails.style.display = this.checked ? 'block' : 'none';
+        });
+
+        // Form submission
+        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Your appointment has been booked successfully!');
+            // Here you would typically send the form data to a server
+            // this.reset();
+        });
+    </script> -->
+</body>
+</html>
+{% endblock %}

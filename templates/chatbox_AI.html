@@ -1,0 +1,50 @@
+{% extends "index.html" %}
+
+{% block content %}
+<br/>
+<br/>
+<div class="chat-container">
+    <!-- Header chatbox -->
+    <div class="chat-header">
+        <h2><i class="fas fa-robot"></i> Trợ lý AI Sức khỏe</h2>
+        <button id="clear-cache-btn" title="Xóa lịch sử trò chuyện">
+            <i class="fas fa-trash-alt"></i>
+        </button>
+    </div>
+
+    <!-- Vùng hiển thị tin nhắn -->
+    <div class="chat-box" id="chat-box">
+        <!-- Tin nhắn mẫu khi bắt đầu -->
+        <div class="welcome-message bot-message">
+            <div class="message-content">
+                <p>Xin chào! Tôi là trợ lý AI sức khỏe. Bạn có thể:</p>
+                <ul>
+                    <li>Hỏi về triệu chứng bệnh</li>
+                    <li>Nhận lời khuyên sức khỏe</li>
+                    <li>Kiểm tra tình trạng sức khỏe</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vùng nhập tin nhắn -->
+    <div class="chat-input-area">
+        <form class="chat-input" method="post" id="chat-form">
+            <div class="input-group">
+                <input type="text" name="user_input" id="user_input" placeholder="Nhập câu hỏi về sức khỏe..." required>
+                <div class="action-buttons">
+                    <button type="submit" id="send-btn" title="Gửi tin nhắn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Phản hồi ẩn để lấy dữ liệu từ Flask -->
+<span id="bot-response" style="display: none;">{{ response }}</span>
+
+<script src="/static/js/scriptAI.js"></script>
+{% endblock %}

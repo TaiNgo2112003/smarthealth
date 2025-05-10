@@ -1,0 +1,124 @@
+<!-- Left Sidebar -->
+<div class="leftbar" id="leftbar">
+    <button class="leftbar-toggle" onclick="toggleLeftbar()">
+        <i class="fas fa-bars"></i>
+    </button>
+    <div class="leftbar-menu">
+        <a href="{{ url_for('home') }}" class="leftbar-item">
+            <i class="fas fa-house-medical leftbar-icon"></i>
+            <span class="leftbar-text">Trang chủ</span>
+        </a>
+        <a href="{{ url_for('medical_records') }}" class="leftbar-item">
+            <i class="fas fa-file-medical leftbar-icon"></i>
+            <span class="leftbar-text">Hồ sơ bệnh án</span>
+        </a>
+        <a href="{{ url_for('predict_page') }}" class="leftbar-item">
+            <i class="fas fa-x-ray leftbar-icon"></i>
+            <span class="leftbar-text">Dự đoán bệnh từ ảnh X-ray</span>
+        </a>
+        <a href="{{ url_for('chatbox') }}" class="leftbar-item">
+            <i class="fas fa-robot leftbar-icon"></i>
+            <span class="leftbar-text">AI hỗ trợ tư vấn sức khỏe</span>
+        </a>
+        <a href="{{ url_for('symptoms') }}" class="leftbar-item">
+            <i class="fas fa-stethoscope leftbar-icon"></i>
+            <span class="leftbar-text">Dự đoán tình trạng</span>
+        </a>
+        <a href="#" class="leftbar-item">
+            <i class="fas fa-chart-line leftbar-icon"></i>
+            <span class="leftbar-text">Thống kê sức khỏe</span>
+        </a>
+        <a href="#" class="leftbar-item">
+            <i class="fas fa-dna leftbar-icon"></i>
+            <span class="leftbar-text">Phân tích xét nghiệm</span>
+        </a>
+        <a href="{{ url_for('book_appointment') }}" class="leftbar-item">
+            <i class="fas fa-user-md leftbar-icon"></i>
+            <span class="leftbar-text">Tư vấn bác sĩ</span>
+        </a>
+    </div>
+</div>
+
+<style>
+    .leftbar {
+        width: 250px;
+        background: #222;
+        color: white;
+        position: fixed;
+        top: 70px;
+        left: -250px;
+        transition: 0.3s ease;
+        padding: 20px 0;
+        height: calc(100vh - 70px);
+        z-index: 999;
+    }
+
+    .leftbar.open {
+        left: 0;
+    }
+
+    .leftbar-toggle {
+        position: fixed;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #333;
+        color: white;
+        padding: 15px 12px;
+        border: none;
+        cursor: pointer;
+        transition: 0.3s ease;
+        border-radius: 0 5px 5px 0;
+        z-index: 1000;
+        font-size: 1.2rem;
+    }
+
+    .leftbar.open + .leftbar-toggle {
+        left: 250px;
+    }
+
+    .leftbar-menu {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .leftbar-item {
+        display: flex;
+        align-items: center;
+        color: white;
+        text-decoration: none;
+        padding: 12px 20px;
+        transition: all 0.3s;
+        border-left: 3px solid transparent;
+    }
+
+    .leftbar-item:hover {
+        background: #444;
+        border-left: 3px solid #4fc3f7;
+    }
+
+    .leftbar-icon {
+        width: 24px;
+        text-align: center;
+        margin-right: 12px;
+        font-size: 1.1rem;
+    }
+
+    .leftbar-text {
+        font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+        .leftbar {
+            top: 60px;
+            height: calc(100vh - 60px);
+        }
+    }
+</style>
+
+<script>
+    function toggleLeftbar() {
+        const leftbar = document.getElementById('leftbar');
+        leftbar.classList.toggle('open');
+    }
+</script>

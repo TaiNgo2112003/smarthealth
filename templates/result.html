@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="main-content">
+    <div class="predict-container">
+        <div class="header">
+            <h1>Kết Quả Dự Đoán</h1>
+            <p>Dưới đây là kết quả phân tích các triệu chứng bạn đã cung cấp</p>
+        </div>
+
+        <div class="result-container">
+            <h2 class="result-title">Bệnh dự đoán chính: <span style="color: #dc3545;">{{ prediction }}</span></h2>
+            
+            <div class="probability-section">
+                <h3>Top 5 bệnh có khả năng:</h3>
+                <ul class="probability-list">
+                    {% for disease, prob in top5 %}
+                    <li>
+                        <span class="disease-name">{{ disease }}</span>
+                        <span class="confidence-value">{{ prob }}%</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Thông tin đã nhập</div>
+            <div class="row">
+                <div class="col">
+                    <p><strong>Tuổi:</strong> {{ input_data['Age'] }}</p>
+                    <p><strong>Giới tính:</strong> {{ input_data['Gender'] }}</p>
+                    <p><strong>Sốt:</strong> {{ input_data['Fever'] }}</p>
+                    <p><strong>Ho:</strong> {{ input_data['Cough'] }}</p>
+                </div>
+                <div class="col">
+                    <p><strong>Mệt mỏi:</strong> {{ input_data['Fatigue'] }}</p>
+                    <p><strong>Khó thở:</strong> {{ input_data['Difficulty Breathing'] }}</p>
+                    <p><strong>Huyết áp:</strong> {{ input_data['Blood Pressure'] }}</p>
+                    <p><strong>Cholesterol:</strong> {{ input_data['Cholesterol Level'] }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <a href="{{ url_for('symptoms') }}" class="predict-button">Nhập Lại</a>
+            <button class="predict-button" onclick="downloadPDF()">In kết quả</button>
+        </div>
+    </div>
+</div>
+<script>
+    function downloadPDF() {
+        const element = document.querySelector(".main-content"); 
+        html2pdf()
+            .from(element)
+            .save("ket_qua_du_doan.pdf");
+    }
+    </script>
+<style>
+    .probability-section {
+        margin-top: 20px;
+    }
+    
+    .probability-list {
+        list-style-type: none;
+        padding: 0;
+    }
+    
+    .probability-list li {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .disease-name {
+        font-weight: 500;
+    }
+    
+    .confidence-value {
+        color: #27ae60;
+        font-weight: 600;
+    }
+    
+    .action-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 30px;
+    }
+    
+    .predict-button {
+        text-decoration: none;
+        text-align: center;
+    }
+</style>
+{% endblock %}

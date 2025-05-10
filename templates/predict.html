@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="main-content">
+    <div class="predict-container">
+        <h2>Upload an Image for Prediction</h2>
+        
+        <form method="POST" enctype="multipart/form-data" class="predict-form">
+            <div class="form-group">
+                <label for="file">Select X-ray Image:</label>
+                <input type="file" id="file" name="file" required accept="image/*">
+            </div>
+            <button type="submit" class="predict-button">Analyze Image</button>
+        </form>
+
+        {% if error %}
+        <div class="error-message">
+            <p>{{ error }}</p>
+        </div>
+        {% endif %}
+
+        {% if prediction %}
+        <div class="result-container">
+            <h3 class="result-title">Diagnosis Result</h3>
+            <p><strong>Condition:</strong> {{ prediction }}</p>
+            <p><strong>Confidence:</strong> <span class="confidence-value">{{ confidence }}</span></p>
+            
+            {% if image_url %}
+            <div class="result-image">
+                <img src="{{ image_url }}" alt="X-ray Result">
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

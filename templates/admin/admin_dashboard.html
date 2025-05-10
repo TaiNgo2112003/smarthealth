@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="icon" type="image/png" href="/static/images/logo.png">
+    <link rel="stylesheet" href="/static/css/admin.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <div class="dashboard">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="/static/images/logo.png" alt="Logo Y Tế">
+                <h2>Admin Y Tế</h2>
+            </div>
+            <div class="nav-menu">
+                <div class="nav-item active">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Lịch hẹn khám</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-user-md"></i>
+                    <span>Bác sĩ</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-procedures"></i>
+                    <span>Bệnh nhân</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Thống kê</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Cài đặt</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="header">
+                <h1>Quản lý lịch hẹn khám</h1>
+
+                <div class="user-info" id="user-avatar-container">
+                    <img id="user-avatar-img" src="/static/images/doctor.png" alt="User Avatar">
+
+                    <a href="{{ url_for('login') }}" id="displayName">Đăng nhập </a>
+
+                    <button id="logout-btn" style="
+                    display: none; 
+                    background-color: #7e4da9; 
+                    color: white; 
+                    border: none; 
+                    padding: 8px 16px; 
+                    border-radius: 5px; 
+                    cursor: pointer; 
+                    font-size: 14px; 
+                    margin-left: 10px;
+                    transition: background-color 0.3s;">
+                        Đăng xuất
+                    </button>
+                </div>
+            </div>
+
+            <div class="stats">
+                <div class="stat-card">
+                    <h3>Tổng lịch hẹn</h3>
+                    <p id="total-appointments">24</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Đã xác nhận</h3>
+                    <p id="confirmed-appointments">15</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Chờ xác nhận</h3>
+                    <p id="pending-appointments">7</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Đã hủy</h3>
+                    <p id="cancelled-appointments">2</p>
+                </div>
+            </div>
+            <div class="appointments">
+                <h2>Danh sách lịch hẹn mới</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Bệnh nhân</th>
+                            <th>Bác sĩ</th>
+                            <th>Ngày giờ</th>
+                            <th>Lý do</th>
+                            <th>Trạng thái</th>
+                            <th>Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody id="appointmentFormAdmin">
+                        <tr>
+                            <td class="index"></td>
+                            <td class="fullName"></td>
+                            <td class="doctor"></td>
+                            <td class="appointmentDate"></td>
+                            <td class="reason"></td>
+                            <td class="status"></td>
+                            <td>
+                                <button class="accept-btn">✅ Chấp nhận</button>
+                                <button class="reject-btn">❌ Từ chối</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    <script type="module" src="../../static/js/firebase.js"></script>
+    <script type="module" src="/static/js/firebase.js"></script>
+    <script type="module" src="/static/js/admin.js"></script>
+    <script>
+        const loginUrl = "{{ url_for('login') }}";
+        const logoutUrl = "{{ url_for('logout') }}";
+    </script>
+
+</body>
+
+</html>

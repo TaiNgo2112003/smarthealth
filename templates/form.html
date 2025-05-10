@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="main-content">
+    <div class="predict-container">
+        <div class="header">
+            <h2>Chẩn Đoán Sức Khỏe</h2>
+            <p>Vui lòng điền thông tin triệu chứng để nhận dự đoán</p>
+        </div>
+
+        <form method="POST" class="predict-form">
+            <div class="section">
+                <div class="section-title">Thông Tin Cơ Bản</div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="age">Tuổi*</label>
+                            <input type="number" id="age" name="age" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="gender">Giới tính*</label>
+                            <select id="gender" name="gender" class="form-control" required>
+                                <option value="">-- Chọn --</option>
+                                <option value="Male">Nam</option>
+                                <option value="Female">Nữ</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Triệu Chứng Lâm Sàng</div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="fever">Sốt*</label>
+                            <select id="fever" name="fever" class="form-control" required>
+                                <option value="">-- Chọn --</option>
+                                <option value="Yes">Có</option>
+                                <option value="No">Không</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="cough">Ho*</label>
+                            <select id="cough" name="cough" class="form-control" required>
+                                <option value="">-- Chọn --</option>
+                                <option value="Yes">Có</option>
+                                <option value="No">Không</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="fatigue">Mệt mỏi*</label>
+                            <select id="fatigue" name="fatigue" class="form-control" required>
+                                <option value="">-- Chọn --</option>
+                                <option value="Yes">Có</option>
+                                <option value="No">Không</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="breathing">Khó thở*</label>
+                            <select id="breathing" name="breathing" class="form-control" required>
+                                <option value="">-- Chọn --</option>
+                                <option value="Yes">Có</option>
+                                <option value="No">Không</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Chỉ Số Sức Khỏe</div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="blood_pressure">Huyết áp*</label>
+                            <select id="blood_pressure" name="blood_pressure" class="form-control" required>
+                                <option value="">-- Chọn --</option>
+                                <option value="Low">Thấp</option>
+                                <option value="Normal">Bình thường</option>
+                                <option value="High">Cao</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="cholesterol">Cholesterol*</label>
+                            <select id="cholesterol" name="cholesterol" class="form-control" required>
+                                <option value="">-- Chọn --</option>
+                                <option value="Normal">Bình thường</option>
+                                <option value="High">Cao</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="predict-button">Dự Đoán Bệnh</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

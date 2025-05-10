@@ -1,0 +1,48 @@
+<!-- Top Navigation Bar -->
+<header class="topbar">
+    <!-- Logo và tên ứng dụng -->
+    <div class="brand">
+        <!-- Từ Freepik -->
+        <img src="/static/images/logo.png" alt="Medical AI Logo" class="logo">
+
+        <h1 class="app-name">Medical<span>AI</span></h1>
+    </div>
+
+    <!-- Thanh tìm kiếm (nếu cần) -->
+    <div class="search-bar">
+        <input type="text" placeholder="Tìm kiếm bệnh án, dịch vụ...">
+        <button class="search-btn">🔍</button>
+    </div>
+
+    <!-- Menu người dùng -->
+    <nav class="user-menu">
+        <button class="noti-btn" title="Thông báo">
+            <span class="icon">🔔</span>
+            <span class="noti-badge">3</span>
+        </button>
+
+        <button class="history-btn" title="Lịch sử">
+            <span class="icon">📋</span>
+            <span class="menu-text">Lịch sử</span>
+        </button>
+
+        <div class="divider"></div>
+
+        <button class="theme-toggle" title="Chế độ sáng/tối">
+            <span class="icon">🌙</span>
+        </button>
+
+        <div class="user-avatar" id="user-avatar-container">
+            <img id="user-avatar-img" src="/static/images/default-avatar.png" alt="User Avatar">
+            <a href="{{ url_for('login') }}" id="displayName">Đăng nhập</a>
+            <button id="logout-btn" style="display: none;">Đăng xuất</button>
+        </div>
+        
+        
+
+    </nav>
+</header>
+<script>
+    const loginUrl = "{{ url_for('login') }}";
+    const logoutUrl = "{{ url_for('logout') }}";
+</script>

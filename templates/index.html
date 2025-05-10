@@ -1,0 +1,251 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+    :root {
+        --primary-color: #4361ee;
+        --secondary-color: #3f37c9;
+        --accent-color: #4895ef;
+        --light-color: #f8f9fa;
+        --dark-color: #212529;
+    }
+    
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f5f7fa;
+    }
+    
+    .hero-section {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: white;
+        padding: 5rem 0;
+        border-radius: 0 0 20px 20px;
+        box-shadow: 0 10px 30px rgba(67, 97, 238, 0.2);
+        margin-bottom: 3rem;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .hero-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+        background-size: cover;
+        opacity: 0.1;
+    }
+    
+    .feature-card {
+        background: white;
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        height: 100%;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(67, 97, 238, 0.15);
+    }
+    
+    .feature-card::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        transition: all 0.3s ease;
+    }
+    
+    .feature-card:hover::after {
+        height: 10px;
+    }
+    
+    .feature-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    
+    .project-info-card {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+        margin-bottom: 3rem;
+    }
+    
+    .project-info-header {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: white;
+        padding: 1.5rem;
+    }
+    
+    .info-item {
+        padding: 1.25rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        transition: all 0.2s ease;
+    }
+    
+    .info-item:hover {
+        background-color: rgba(67, 97, 238, 0.05);
+    }
+    
+    .info-item:last-child {
+        border-bottom: none;
+    }
+    
+    .section-title {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 2rem;
+    }
+    
+    .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 50px;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        border-radius: 2px;
+    }
+    
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0px); }
+    }
+    
+    .floating {
+        animation: float 3s ease-in-out infinite;
+    }
+</style>
+
+<div class="hero-section text-center">
+    <div class="container">
+        <h1 class="display-4 font-weight-bold mb-4">HỆ THỐNG CHẨN ĐOÁN Y TẾ AI</h1>
+        <p class="lead mb-5">Kết hợp trí tuệ nhân tạo và hình ảnh X-quang để chẩn đoán bệnh chính xác</p>
+        <img src="https://cdn-icons-png.flaticon.com/512/3059/3059518.png" alt="Medical AI" style="height: 150px;" class="floating">
+    </div>
+</div>
+
+<div class="container">
+    <!-- Project info section -->
+    <div class="project-info-card">
+        <div class="project-info-header">
+            <h3 class="mb-0"><i class="fas fa-info-circle mr-2"></i>THÔNG TIN DỰ ÁN</h3>
+        </div>
+        <div class="p-0">
+            <div class="info-item">
+                <strong><i class="fas fa-user mr-2 text-primary"></i>Người thực hiện:</strong> Phan Thị Hồng Hiên
+            </div>
+            <div class="info-item">
+                <strong><i class="fas fa-id-card mr-2 text-primary"></i>MSSV:</strong> 1050080197
+            </div>
+            <div class="info-item">
+                <strong><i class="fas fa-envelope mr-2 text-primary"></i>Email:</strong> 1050080178@sv.hcmunre.edu.vn
+            </div>
+            <div class="info-item">
+                <strong><i class="fas fa-project-diagram mr-2 text-primary"></i>Đề tài:</strong> Dự án sử dụng ảnh X-ray và triệu chứng để chẩn đoán bệnh tình
+            </div>
+        </div>
+    </div>
+
+    <!-- Features section -->
+    <div class="text-center mb-5">
+        <h2 class="section-title">CÁC CHỨC NĂNG CHÍNH</h2>
+        <p class="text-muted">Hệ thống tích hợp nhiều tính năng hiện đại hỗ trợ chẩn đoán y tế</p>
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="feature-card p-4 text-center">
+                <div class="feature-icon">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <h4>Quản lý hồ sơ</h4>
+                <p class="text-muted">Lưu trữ và quản lý thông tin bệnh nhân khoa học, bảo mật</p>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="feature-card p-4 text-center">
+                <div class="feature-icon">
+                    <i class="fas fa-lungs"></i>
+                </div>
+                <h4>Chẩn đoán từ X-ray</h4>
+                <p class="text-muted">Phân tích hình ảnh X-quang phổi bằng AI với độ chính xác cao</p>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="feature-card p-4 text-center">
+                <div class="feature-icon">
+                    <i class="fas fa-stethoscope"></i>
+                </div>
+                <h4>Chẩn đoán qua triệu chứng</h4>
+                <p class="text-muted">Hỗ trợ chẩn đoán bệnh dựa trên triệu chứng được cung cấp</p>
+            </div>
+        </div>
+        
+        <div class="col-lg-6 col-md-6 mb-4">
+            <div class="feature-card p-4 text-center">
+                <div class="feature-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h4>AI tư vấn sức khỏe</h4>
+                <p class="text-muted">Trợ lý AI thông minh tư vấn các vấn đề sức khỏe 24/7</p>
+            </div>
+        </div>
+        
+        <div class="col-lg-6 col-md-6 mb-4">
+            <div class="feature-card p-4 text-center">
+                <div class="feature-icon">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+                <h4>Đặt lịch khám</h4>
+                <p class="text-muted">Hệ thống đặt lịch khám trực tuyến tiện lợi, nhanh chóng</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript for animations -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Animate elements when they come into view
+        const featureCards = document.querySelectorAll('.feature-card');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        featureCards.forEach(card => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+    });
+</script>
+
+{% endblock %}
